@@ -1,0 +1,25 @@
+{
+  "name": "supremeagent",
+  "version": "0.0.1",
+  "authors": [
+    "Hongxu Liu <shu@resonanc3.io>"
+  ],
+  "description": "wrapper for superagent",
+  "main": "supremeagent.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "superagent": "https://github.com/shupac/superagent.git#master",
+    "underscore": "~1.7.0"
+  }
+}
