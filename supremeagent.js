@@ -5,6 +5,8 @@ define(function(require, exports, module) {
 
     function MyRequest() {
         Request.apply(this, arguments);
+
+        this.attempts = 0;
     }
 
     MyRequest.prototype = Object.create(Request.prototype);
@@ -15,6 +17,7 @@ define(function(require, exports, module) {
     MyRequest.prototype.end = function(fn) {
         this.endCallback = fn;
         this.original_end(fn);
+        this.attempts++;
     };
 
     MyRequest.prototype.inspect = function(fn) {
@@ -39,6 +42,7 @@ define(function(require, exports, module) {
     }
 
     _.extend(supremeagent, superagent);
+
     supremeagent.get =  function(url, data, fn) {
         var req = this('GET',url);
         if ('function' == typeof data) fn = data, data = null;
@@ -53,6 +57,14 @@ define(function(require, exports, module) {
         if (data) req.send(data);
         if (fn) req.end(fn);
         return req;
+    };
+
+    supremeagent.put = function(url, data, fn){
+      var req = this('PUT', url);
+      if ('function' == typeof data) fn = data, data = null;
+      if (data) req.send(data);
+      if (fn) req.end(fn);
+      return req;
     };
 
     supremeagent.Request = MyRequest;
