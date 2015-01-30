@@ -18,6 +18,7 @@ define(function(require, exports, module) {
         this.endCallback = fn;
         this.original_end(fn);
         this.attempts++;
+        return this;
     };
 
     MyRequest.prototype.inspect = function(fn) {
