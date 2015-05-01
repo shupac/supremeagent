@@ -20,6 +20,6 @@
   ],
   "dependencies": {
     "superagent": "https://github.com/shupac/superagent.git#master",
-    "underscore": "~1.7.0"
+    "lodash": "~3.6.0"
   }
 }

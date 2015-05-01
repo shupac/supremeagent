@@ -1,5 +1,5 @@
 define(function(require, exports, module) {
-    var _          = require('underscore');
+    var _          = require('lodash');
     var superagent = require('superagent');
     var Request    = superagent.Request;
 
