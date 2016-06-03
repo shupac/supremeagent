@@ -67,6 +67,14 @@ define(function(require, exports, module) {
       if (fn) req.end(fn);
       return req;
     };
+    
+    supremeagent.patch = function(url, data, fn){
+      var req = this('PATCH', url);
+      if ('function' == typeof data) fn = data, data = null;
+      if (data) req.send(data);
+      if (fn) req.end(fn);
+      return req;
+    };
 
     supremeagent.Request = MyRequest;
 
